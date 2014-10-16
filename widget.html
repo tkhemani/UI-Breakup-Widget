@@ -1,0 +1,76 @@
+<html>
+<head>
+<title>Distribution Visualization</title>
+<script type="text/javascript">
+    
+                
+                function plotData(Mydensity , Myfragmentation, color_codes){
+                
+                                var barGraph = document.getElementById('DistBarGraph');
+                                
+                                var rowCount = barGraph.rows.length;
+                                
+                                alert(rowCount);
+                                
+                                var row = barGraph.insertRow(rowCount);
+                                
+                                var cell = undefined;
+                                var element = undefined;
+                                
+                                for(var i=0; i<6; i++){
+                                                cell = row.insertCell(i);                                   
+                                                cell.style.width=Mydensity[i];
+                                                cell.style.backgroundColor = color_codes[i];
+                                                cell.style.filter = "alpha(opacity=" + Myfragmentation[i]*100 + ")";
+                                                
+                                                
+                                }
+                
+                }
+
+                var density = ['15%','30%','10%','25%','5%','15%'];
+                var colors = ['#F00','#06F','#0C0','#C09','#933','#069'];
+                var opacity = [1,0.5,0.8,0.3,0.7,0.1];
+</script>
+
+<style type="text/css">
+
+.BarGraph {
+                width : 1200px;
+                height : 50px;
+                border : 1px solid red;
+}
+
+.GraphCell {
+                width : 200px;
+                background-color : blue;
+}
+</style>
+
+</head>
+<body>
+
+<div onclick='plotData(density,opacity,colors);'>
+
+<table id="DistBarGraph" class="BarGraph">
+
+</table>
+
+</br>
+<table class='BarGraph'>
+<tr>
+                <td class='GraphCell' style='background-color:#F00;' ></td>
+                <td class='GraphCell' style='background-color:#06F;'></td>
+                <td class='GraphCell' style='background-color:#0C0;'></td>
+                <td class='GraphCell' style='background-color:#C09;'></td>
+                <td class='GraphCell' style='background-color:#933;'></td>
+                <td class='GraphCell' style='background-color:#069;'></td>
+</tr>
+</table>
+
+</div>
+
+</body>
+</html>
+
+   
